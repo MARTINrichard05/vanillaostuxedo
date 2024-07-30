@@ -1,5 +1,5 @@
-name: Custom Vanilla Desktop # Replace this name with your image name
-id: custom # Replace this ID with your image ID
+name: Richards Vanilla Desktop # Replace this name with your image name
+id: vanilla-tuxedo-plus # Replace this ID with your image ID
 stages:
 - id: build
   base: ghcr.io/vanilla-os/desktop:main # Optionally, Replace this image URL with a different one i.e. nvidia:main, etc
@@ -28,6 +28,11 @@ stages:
     source:
       packages:
       - vim
+      - nano
+      - dkms
+      - libvirt
+      - virt-manager
+      - docker.io
 
   - name: example-commands # Sample module demonstrating the Shell module with custom commands
     type: shell
