@@ -34,15 +34,15 @@ stages:
       - libvirt-daemon
       - bridge-utils
       - virt-manager
+      - docker.io
 
   - name: example-commands # Sample module demonstrating the Shell module with custom commands
     type: shell
     commands:
     - echo enabling libvirtd
     - systemctl enable libvirtd.service
-    - echo installing docker
-    - curl -fsSL https://get.docker.com -o get-docker.sh
-    - sh get-docker.sh
+    - echo enabling and setting up docker
+    - systemctl enable docker
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
