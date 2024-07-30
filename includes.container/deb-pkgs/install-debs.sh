@@ -23,27 +23,18 @@ for file in /deb-pkgs/*; do
     fi
 done
 
+set -e
 for file in /deb-pkgs/*; do
-    if [! -f "$file" ]; then
+    if [ ! -f "$file" ]; then
         continue
     fi
 
     extension=${file##*.}
-    if [ "$extension"!= "deb" ]; then
+    if [ $extension != "deb" ]; then
         continue
     fi
 
-    filename=${file##*/}
-    if [[ $filename =~ ^tuxedo-drivers ]]; then
-        if [ $tuxedo_drivers_installed = false ]; then
-            echo "installing $file"
-            apt-get install -y $file
-            tuxedo_drivers_installed=true
-        fi
-    else
-        if [ $tuxedo_drivers_installed = true ]; then
-            echo "installing $file"
-            apt-get install -y $file
-        fi
-    fi
+    echo "installing $file"
+
+    apt-get install -y $file
 done
