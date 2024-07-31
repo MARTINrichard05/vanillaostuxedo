@@ -39,6 +39,7 @@ stages:
       - meson
       - libadwaita-1-dev
       - libgtk-4-dev
+      - rustc
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
