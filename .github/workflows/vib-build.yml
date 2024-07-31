@@ -11,7 +11,7 @@ on:
   workflow_dispatch:
 
 env:
-  CUSTOM_IMAGE_NAME: vanilla-tuxedors-plus
+  CUSTOM_IMAGE_NAME: vanilla-tuxedo-plus
   BUILDX_NO_DEFAULT_ATTESTATIONS: 1
 
 jobs:
