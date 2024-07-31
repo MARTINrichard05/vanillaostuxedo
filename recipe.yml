@@ -40,6 +40,8 @@ stages:
       - libadwaita-1-dev
       - libgtk-4-dev
       - rustc
+      - cmake
+      - systemd-dev
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
