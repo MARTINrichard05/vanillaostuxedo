@@ -27,7 +27,6 @@ stages:
     type: apt
     source:
       packages:
-      - vim
       - nano
       - dkms
       - libvirt-clients
@@ -42,6 +41,7 @@ stages:
       - rustc
       - cmake
       - systemd-dev
+      - gettext
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
