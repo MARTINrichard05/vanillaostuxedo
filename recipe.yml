@@ -35,14 +35,10 @@ stages:
       - bridge-utils
       - virt-manager
       - docker.io
-
-  - name: example-commands # Sample module demonstrating the Shell module with custom commands
-    type: shell
-    commands:
-    - echo enabling libvirtd
-    - systemctl enable libvirtd.service
-    - echo enabling and setting up docker
-    - systemctl enable docker
+      - git
+      - meson
+      - libadwaita-1-dev
+      - libgtk-4-dev
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
@@ -50,6 +46,15 @@ stages:
       - modules/50-install-debs.yml # Sample local module present in this repository
       - gh:vanilla-os/dev-image:main:modules/00-basics.yml # Sample GitHub remote module in the format: `gh:your-name/your-repo:branch:modules/file.yml`
       - https://raw.githubusercontent.com/Vanilla-OS/dev-image/main/modules/05-go.yml # Sample full URL remote module
+
+   - name: tuxedo-rs
+    type: shell
+    commands:
+    - git clone https://github.com/AaronErhardt/tuxedo-rs.git
+    - cd tuxedo-rs/tailord
+    - meson setup --prefix=/usr _build
+    - ninja -C _build
+    - ninja -C _build install
 
   # Put your custom actions before this comment
 
