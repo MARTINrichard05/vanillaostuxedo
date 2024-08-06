@@ -42,6 +42,8 @@ stages:
       - cmake
       - systemd-dev
       - gettext
+      - desktop-file-utils
+      - cargo
 
   - name: example-modules # Sample module demonstrating importing local and remote modules
     type: includes
@@ -62,6 +64,11 @@ stages:
     - cp com.tux.Tailor.conf /etc/dbus-1/system.d/
     - ln /usr/lib/systemd/system/tailord.service /etc/systemd/system/multi-user.target.wants/tailord.service
     - ln /usr/lib/systemd/system/tailord.service /etc/systemd/system/tailord.service
+    - cd ../tailor_gui
+    - meson setup --prefix=/usr _build
+    - ninja -C _build
+    - ninja -C _build install
+    
 
   # Put your custom actions before this comment
 
