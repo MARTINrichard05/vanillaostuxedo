@@ -71,6 +71,12 @@ stages:
     - cd ../tailor_cli
     - cargo build -Z unstable-options --release --out-dir build
     - cp build/tailor /usr/bin
+
+  - name: tlp
+    type: shell
+    commands:
+    - apt remove -y power-profiles-daemon
+    - apt install -y tlp
     
 
   # Put your custom actions before this comment
