@@ -53,12 +53,13 @@ stages:
   - name: tailord
     type: shell
     commands:
-    - git clone https://github.com/AaronErhardt/tuxedo-rs.git
+    - git clone https://github.com/MARTINrichard05/tuxedo-rs-unlocked.git
     - cd tuxedo-rs/tailord
     - meson setup --prefix=/usr _build
     - ninja -C _build
     - cp _build/src/tailord /usr/bin/
     - cp _build/tailord.service /usr/lib/systemd/system/
+    - cp com.tux.Tailor.conf /etc/dbus-1/system.d/
     - ln /usr/lib/systemd/system/tailord.service /etc/systemd/system/multi-user.target.wants/tailord.service
 
   # Put your custom actions before this comment
