@@ -68,6 +68,9 @@ stages:
     - meson setup --prefix=/usr _build
     - ninja -C _build
     - ninja -C _build install
+    - cd ../tailor_cli
+    - cargo build -Z unstable-options --release --out-dir build
+    - cp build/tailor /usr/bin
     
 
   # Put your custom actions before this comment
