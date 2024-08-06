@@ -54,7 +54,7 @@ stages:
     type: shell
     commands:
     - git clone https://github.com/MARTINrichard05/tuxedo-rs-unlocked.git
-    - cd tuxedo-rs/tailord
+    - cd tuxedo-rs-unlocked/tailord
     - meson setup --prefix=/usr _build
     - ninja -C _build
     - cp _build/src/tailord /usr/bin/
