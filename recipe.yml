@@ -61,6 +61,7 @@ stages:
     - cp _build/tailord.service /usr/lib/systemd/system/
     - cp com.tux.Tailor.conf /etc/dbus-1/system.d/
     - ln /usr/lib/systemd/system/tailord.service /etc/systemd/system/multi-user.target.wants/tailord.service
+    - ln /usr/lib/systemd/system/tailord.service /etc/systemd/system/tailord.service
 
   # Put your custom actions before this comment
 
